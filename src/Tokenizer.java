@@ -72,6 +72,13 @@ public class Tokenizer implements TokenizerInterface {
 			//tokenize temp by space
 			tokenizeBySpace(temp);
 			
+			//add tokens to retArray
+			for(int inc2 = 0; inc2 < spaceArray.size(); inc++)
+			{
+			
+				
+				
+			}
 			
 			
 		}
