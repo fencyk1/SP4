@@ -75,9 +75,7 @@ public class Tokenizer implements TokenizerInterface {
 			//add tokens to retArray
 			for(int inc2 = 0; inc2 < spaceArray.size(); inc++)
 			{
-			
-				
-				
+				retArray.add(spaceArray.get(inc2));	
 			}
 			
 			
@@ -88,7 +86,7 @@ public class Tokenizer implements TokenizerInterface {
 		
 		
 		//return
-		return null;
+		return retArray;
 	}
 
 }
