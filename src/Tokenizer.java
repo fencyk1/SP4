@@ -56,6 +56,9 @@ public class Tokenizer implements TokenizerInterface {
 		//create storage array
 		ArrayList<String> retArray = new ArrayList<String>(0);
 		
+		//print tokenizing message
+		System.out.println(line);
+		
 		//tokenize by pipe
 		tokenizeByPipe(line);
 		
