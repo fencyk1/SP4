@@ -12,17 +12,15 @@ public interface TokenizerInterface {
 	 * This will take a string and separate it into tokens by white space.
 	 * 
 	 * @param line = string to be separated
-	 * @return ArrayList<String> of separated tokens
 	 */
-	ArrayList<String> tokenizeBySpace(String line);
+	void tokenizeBySpace(String line);
 	
 	/**
 	 * This will take a string and separate it into tokens by pipes.
 	 * 
 	 * @param line = string to be separated
-	 * @return ArrayList<String> of separated tokens.
 	 */
-	ArrayList<String> tokenizeByPipe(String line);
+	void tokenizeByPipe(String line);
 	
 	/**
 	 * This method will take a string and separate it into tokens by both space and pipes.

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 public class ObjectIn implements ObjectInInterface{
-	public ArrayList<ArrayList<String>> objectArray;
+	public ArrayList<ArrayList<String>> objectArray = new ArrayList<ArrayList<String>>();
 
 	@Override
 	public void readObjectFile(File object) throws IOException {
