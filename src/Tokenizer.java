@@ -52,7 +52,35 @@ public class Tokenizer implements TokenizerInterface {
 
 	@Override
 	public ArrayList<String> tokenize(String line) {
-		// TODO Auto-generated method stub
+		
+		//create storage array
+		ArrayList<String> retArray = new ArrayList<String>(0);
+		
+		//tokenize by pipe
+		tokenizeByPipe(line);
+		
+		//tokenize by space
+		for(int inc = 0; inc < pipeArray.size(); inc++)
+		{
+			
+			//create temp string
+			String temp;
+			
+			//set temp equal to token at position inc in pipeArray
+			temp = pipeArray.get(inc);
+			
+			//tokenize temp by space
+			tokenizeBySpace(temp);
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		//return
 		return null;
 	}
 
