@@ -15,4 +15,10 @@ public class Tokenizer implements TokenizerInterface {
 		return null;
 	}
 
+	@Override
+	public ArrayList<String> tokenize(String line) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

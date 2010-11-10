@@ -23,4 +23,12 @@ public interface TokenizerInterface {
 	 * @return ArrayList<String> of separated tokens.
 	 */
 	ArrayList<String> tokenizeByPipe(String line);
+	
+	/**
+	 * This method will take a string and separate it into tokens by both space and pipes.
+	 * 
+	 * @param line = string to be separated
+	 * @return ArrayList<String> of separated tokens
+	 */
+	ArrayList<String> tokenize(String line);
 }
