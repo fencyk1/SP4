@@ -64,15 +64,7 @@ public class Simulator {
 		
 		//print Initial MEM content
 		System.out.println("Intial MEM contents:");
-		for(int inc = 0; inc < 65536; inc += 8)
-		{
-			
-			//output 4 sets of hexcode
-			System.out.print(MEM[inc] + "\t" + MEM[inc+1] + "\t");
-			System.out.print(MEM[inc+2] + "\t" + MEM[inc+3] + "\t");
-			System.out.print(MEM[inc+4] + "\t" + MEM[inc+5] + "\t");
-			System.out.println(MEM[inc+6] + "\t" + MEM[inc+7] + "\t");
-		}
+		printMEM();
 		
 		
 		
@@ -147,15 +139,7 @@ public class Simulator {
 		/**
 		//print final MEM content
 		System.out.println("Final MEM contents:");
-		for(int inc = 0; inc < 65536; inc += 8)
-		{
-			
-			//output 4 sets of hexcode
-			System.out.print(MEM[inc] + "\t" + MEM[inc+1] + "\t");
-			System.out.print(MEM[inc+2] + "\t" + MEM[inc+3] + "\t");
-			System.out.print(MEM[inc+4] + "\t" + MEM[inc+5] + "\t");
-			System.out.println(MEM[inc+6] + "\t" + MEM[inc+7] + "\t");
-		}
+		printMEM();
 		**/
 		
 		
@@ -209,6 +193,40 @@ public class Simulator {
 		//QUESTION: SHould we check out of bounds here or in program?
 		
 		return effaddr;
+	}
+	
+	static void printMEM()
+	{
+		
+		//print the MEM
+		for(int inc = 0; inc < 65536; inc += 8)
+		{
+			
+			//output 4 sets of hexcode
+			System.out.print(MEM[inc] + "\t" + MEM[inc+1] + "\t");
+			System.out.print(MEM[inc+2] + "\t" + MEM[inc+3] + "\t");
+			System.out.print(MEM[inc+4] + "\t" + MEM[inc+5] + "\t");
+			System.out.println(MEM[inc+6] + "\t" + MEM[inc+7] + "\t");
+		}
+	}
+	
+	static void printREG(String[] reg)
+	{
+		
+		//print intent statement
+		System.out.println("Register Contents:");
+		
+		//print out registers 0-7 on first line
+		System.out.print(reg[0] + "\t" + reg[1] + "\t");
+		System.out.print(reg[2] + "\t" + reg[3] + "\t");
+		System.out.print(reg[4] + "\t" + reg[5] + "\t");
+		System.out.println(reg[6] + "\t" + reg[7]);
+		
+		//print out registers 8-15 on second line
+		System.out.print(reg[8] + "\t" + reg[9] + "\t");
+		System.out.print(reg[10] + "\t" + reg[11] + "\t");
+		System.out.print(reg[12] + "\t" + reg[13] + "\t");
+		System.out.println(reg[14] + "\t" + reg[15]);
 	}
 	
 
