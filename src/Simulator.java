@@ -138,6 +138,41 @@ public class Simulator {
 		
 		
 
+		
+		/**
+		//print final MEM content
+		System.out.println("Final MEM contents:");
+		for(int inc = 0; inc < 65536; inc += 8)
+		{
+			
+			//output 4 sets of hexcode
+			System.out.print(MEM[inc] + "\t" + MEM[inc+1] + "\t");
+			System.out.print(MEM[inc+2] + "\t" + MEM[inc+3] + "\t");
+			System.out.print(MEM[inc+4] + "\t" + MEM[inc+5] + "\t");
+			System.out.println(MEM[inc+6] + "\t" + MEM[inc+7] + "\t");
+		}
+		**/
+		
+		
+		
 	}
+	
+	/**
+	 * This is a function to get the effaddr of a instruction
+	 * 
+	 * @param code = binary code of instruction
+	 */
+	static String EFFADDR(String code)
+	{
+		String effaddr = null;
+		
+		
+		
+		return effaddr;
+	}
+	
 
 }
+
+
+
