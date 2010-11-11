@@ -190,7 +190,7 @@ public class Converter implements ConverterInterface {
 			counter++;
 		}
 		//Return the binary string.
-		return decimal;
+		return Integer.toString(decimal);
 	}
 
 	@Override

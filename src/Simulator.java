@@ -15,6 +15,10 @@ public class Simulator {
 	public static void main(File objectFileName) throws IOException {
 		String[] MEM = new String[65536];
 		String[] REG = new String[16];
+		boolean isHalt = false;
+		int LC = 0;
+		int PC = 0;
+		
 		
 		
 		
@@ -71,6 +75,17 @@ public class Simulator {
 		
 		
 		//start exec. case select by opcode
+		while( !isHalt )
+		{
+			
+			
+			
+			
+			
+			
+			
+		}
+		
 		//get opcode and convert to integer
 		
 		//start case select
