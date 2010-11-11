@@ -12,7 +12,7 @@ public class Simulator {
 	 * @param objectFileName = the name of the object file to load
 	 * @throws IOException 
 	 */
-	public static void main(File objectFileName) throws IOException {
+	public static void main(String[] args) throws IOException {
 		String[] MEM = new String[65536];
 		String[] REG = new String[16];
 		boolean isHalt = false;
@@ -25,6 +25,10 @@ public class Simulator {
 		//class object imports
 		ObjectInInterface objectFile = new ObjectIn();
 		ConverterInterface converter = new Converter();
+		
+		//make objecFileName from args
+		File objectFileName = new File(args[0]);
+
 		
 		//Read object file
 		objectFile.readObjectFile(objectFileName);
@@ -52,6 +56,19 @@ public class Simulator {
 			MEM[inc] = hexCode;
 			
 		}
+		
+		//print Initial MEM content
+		System.out.println("Intial MEM contents:");
+		for(int inc = 0; inc < 65536; inc += 8)
+		{
+			
+			//output 4 sets of hexcode
+			System.out.print(MEM[inc] + "\t" + MEM[inc+1] + "\t");
+			System.out.print(MEM[inc+2] + "\t" + MEM[inc+3] + "\t");
+			System.out.print(MEM[inc+4] + "\t" + MEM[inc+5] + "\t");
+			System.out.println(MEM[inc+6] + "\t" + MEM[inc+7] + "\t");
+		}
+		
 		
 		
 		//get object array
@@ -91,6 +108,8 @@ public class Simulator {
 			
 		}
 		
+		
+		/**
 		//get execution start address
 		String startHex = objectArray.get(0).get(1);
 		
@@ -110,6 +129,8 @@ public class Simulator {
 			
 			
 		}
+		
+		**/
 		
 		//get opcode and convert to integer
 		
