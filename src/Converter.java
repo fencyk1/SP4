@@ -8,14 +8,13 @@ import java.lang.Math;
  * @author Jeff Wolfe
  *
  */
-public class Converter implements ConverterInterface {
+public class Converter {
 
 	public Converter() {
 		//No fields, it's a utility class.
 	}
 	
-	@Override
-	public String binaryToHex(String binary) {
+	public static String binaryToHex(String binary) {
 		//Convert the binary string into a decimal value.		
 		long decimal = Long.parseLong(binary,2);
 		//Convert the decimal value into a hex value.
@@ -23,8 +22,7 @@ public class Converter implements ConverterInterface {
 		return hexOut;
 	}
 
-	@Override
-	public String hexToBinary(String hex) {
+	public static String hexToBinary(String hex) {
 		int counter = 0;
 		int decimal = 0;
 		char digit;
@@ -108,8 +106,7 @@ public class Converter implements ConverterInterface {
 		return Integer.toBinaryString(decimal);
 	}
 	
-	@Override
-	public String hexToDec(String hex) {
+	public static String hexToDec(String hex) {
 		int counter = 0;
 		int decimal = 0;
 		char digit;
@@ -193,8 +190,7 @@ public class Converter implements ConverterInterface {
 		return Integer.toString(decimal);
 	}
 
-	@Override
-	public String decimalToHex(String decimal) {
+	public static String decimalToHex(String decimal) {
 		
 		//Convert the string into an integer.
 		int dec = Integer.parseInt(decimal);
@@ -202,8 +198,7 @@ public class Converter implements ConverterInterface {
 		return Integer.toHexString(dec);
 	}
 
-	@Override
-	public String binaryToDecimal(String binary) {
+	public static String binaryToDecimal(String binary) {
 		
 		// Convert the binary string into a decimal integer, then convert
 		// the decimal integer into a String and return.
@@ -212,8 +207,7 @@ public class Converter implements ConverterInterface {
 		return Long.toString(decimal);
 	}
 
-	@Override
-	public String decimalToBinary(String decimal) {
+	public static String decimalToBinary(String decimal) {
 		
 		//Convert the string into an integer.
 		int dec = Integer.parseInt(decimal);
@@ -221,7 +215,7 @@ public class Converter implements ConverterInterface {
 		return Integer.toBinaryString(dec);
 	}
 	
-	public String asciiToBinary(String ascii) {
+	public static String asciiToBinary(String ascii) {
 		
 		//Create a new array of bytes, capable of storing 4 bytes,
 		//as that is the maximum number of ascii characters we will
@@ -287,7 +281,7 @@ public class Converter implements ConverterInterface {
 		return totalBin;
 	}
 	
-	public String twosCompToInteger(String twos)
+	public static String twosCompToInteger(String twos)
 	{
 		//Create a value to hold the final integer representation
 		String integerValue = new String();
@@ -340,7 +334,7 @@ public class Converter implements ConverterInterface {
 	 * @param binary The binary number to be converted into decimal.
 	 * @return The converted decimal integer.
 	 */
-	private int binToDec(String binary) {
+	private static int binToDec(String binary) {
 		int decimal = 0;
 		int counter = 0;
 		int conversion = 0;

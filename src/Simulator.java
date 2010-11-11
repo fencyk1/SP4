@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 
 public class Simulator {
+	//create global variable to act as memory
+	static String[] MEM = new String[65536];
 
+	
+	
 	/**
 	 * 
 	 * @author Everett
@@ -13,18 +17,19 @@ public class Simulator {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		String[] MEM = new String[65536];
 		String[] REG = new String[16];
 		boolean isHalt = false;
 		int LC = 0;
 		int PC = 0;
+		int NIC = 0;
+		int EFFADDR =0;
+		String IWR = null;
 		
 		
 		
 		
 		//class object imports
 		ObjectInInterface objectFile = new ObjectIn();
-		ConverterInterface converter = new Converter();
 		
 		//make objecFileName from args
 		File objectFileName = new File(args[0]);
@@ -41,7 +46,7 @@ public class Simulator {
 			String hexCode = "200";
 			
 			//create hex code for position
-			String pos = converter.decimalToHex(Integer.toString(inc));
+			String pos = Converter.decimalToHex(Integer.toString(inc));
 			
 			// extend pos to 5 hex digits by prepending 0s
 			while(pos.length() < 5)
@@ -90,7 +95,7 @@ public class Simulator {
 				{
 					
 					//create address variable
-					int address = Integer.parseInt(converter.hexToDec(line.get(1)));
+					int address = Integer.parseInt(Converter.hexToDec(line.get(1)));
 					
 					//load MEM
 					MEM[address] = line.get(2);
@@ -162,11 +167,46 @@ public class Simulator {
 	 * 
 	 * @param code = binary code of instruction
 	 */
-	static String EFFADDR(String code)
+	static int EFFADDR(String code)
 	{
-		String effaddr = null;
+		
+		Integer effaddr = 0;
+		
+		//check the address code
+		//if direct or relative
+		if ( code.substring(6, 8).equals("00") || code.substring(6, 8).equals("10"))
+		{
+			
+			//get s field into effaddr
+			effaddr =  Integer.parseInt(Converter.binaryToDecimal(code.substring(16, 32)));
+			
+			//add in index register			
+			effaddr = effaddr + Integer.parseInt(Converter.binaryToDecimal(code.substring(11, 14)));
+			
+		}
+		
+		//if indirect
+		else if ( code.substring(7, 8).equals("01"))
+		{
+			
+			//get s field into effaddr
+			effaddr =  Integer.parseInt(Converter.binaryToDecimal(code.substring(16, 32)));
+			
+			//get mem contents at sfield
+			effaddr = Integer.parseInt(Converter.hexToDec(MEM[effaddr]));
+			
+			//add in index register			
+			effaddr = effaddr + Integer.parseInt(Converter.binaryToDecimal(code.substring(11, 14)));
+		}
+		
+		// if immediate get decimal equivalent to mem address
+		else if ( code.substring(7, 8).equals("11") )
+		{
+			effaddr =  Integer.parseInt(Converter.binaryToDecimal(code.substring(16, 32)));
+		}
 		
 		
+		//QUESTION: SHould we check out of bounds here or in program?
 		
 		return effaddr;
 	}
