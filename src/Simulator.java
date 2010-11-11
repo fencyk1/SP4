@@ -29,6 +29,31 @@ public class Simulator {
 		//Read object file
 		objectFile.readObjectFile(objectFileName);
 		
+		//initialize MEM array
+		for(int inc = 0; inc < 65536; inc++)
+		{
+			
+			//create string containing halt in hex
+			String hexCode = "200";
+			
+			//create hex code for position
+			String pos = converter.decimalToHex(Integer.toString(inc));
+			
+			// extend pos to 5 hex digits by prepending 0s
+			while(pos.length() < 5)
+			{
+				pos = "0" + pos;
+			}
+			
+			//complete hex code
+			hexCode = hexCode + pos;
+			
+			//add hexcode to MEM at inc
+			MEM[inc] = hexCode;
+			
+		}
+		
+		
 		//get object array
 		ArrayList<ArrayList<String>> objectArray = objectFile.outputObjectArray();
 
